@@ -13,7 +13,7 @@
 </head>
 <body class="bg-black text-gray-200 font-sans">
 
-  <!-- NAVBAR -->
+  <!-- NAVBAR: desktop + mobile (blur kaca) -->
   <nav class="sticky top-0 z-50 bg-black/40 backdrop-blur-xl border-b border-white/10">
     <div class="max-w-7xl mx-auto px-4 h-14 flex items-center justify-between">
       <!-- Logo -->
@@ -24,7 +24,7 @@
       <!-- Menu Desktop -->
       <ul class="hidden md:flex items-center gap-8 text-sm font-medium">
         <li><a href="#home" class="hover:text-white">Home</a></li>
-        <li><a href="#profile" class="hover:text-white">Profile</a></li>
+         <li><a href="#profile" class="hover:text-white">Profile</a></li>
         <li><a href="#the-archive" class="hover:text-white">The Archive</a></li>
         <li><a href="#collab" class="hover:text-white">Collab</a></li>
         <li><a href="#contact" class="hover:text-white">Contact</a></li>
@@ -86,7 +86,9 @@
 <section id="profile" class="relative bg-black text-gray-300">
   <!-- METALLIC BLUR BACKDROP -->
   <div class="pointer-events-none absolute inset-0">
+    <!-- soft radial glow -->
     <div class="absolute inset-0 bg-[radial-gradient(1100px_520px_at_50%_-8%,rgba(255,255,255,0.12),transparent_60%)]"></div>
+    <!-- metallic sheen sweep -->
     <div class="absolute inset-0 blur-2xl opacity-70 bg-[conic-gradient(from_210deg_at_60%_40%,rgba(255,255,255,0.06),transparent_20%,rgba(255,255,255,0.10),transparent_60%)]"></div>
   </div>
 
@@ -194,7 +196,7 @@
         <div class="pointer-events-none absolute inset-0 rounded-2xl ring-0 ring-white/0 group-hover:ring-2 group-hover:ring-white/20 transition"></div>
       </a>
 
-      <!-- CARD: Accessories -->
+      <!-- CARD: Accessories (contoh) -->
       <a href="accesories.html"
          class="group relative rounded-2xl border border-white/10 overflow-hidden shadow-lg hover:shadow-2xl transition-all">
         <div class="absolute inset-0 bg-black/30 backdrop-blur-md"></div>
@@ -208,7 +210,7 @@
         <div class="pointer-events-none absolute inset-0 rounded-2xl ring-0 ring-white/0 group-hover:ring-2 group-hover:ring-white/20 transition"></div>
       </a>
 
-      <!-- CARD: Outfit -->
+      <!-- CARD: Outfit (contoh) -->
       <a href="outfit.html"
          class="group relative rounded-2xl border border-white/10 overflow-hidden shadow-lg hover:shadow-2xl transition-all">
         <div class="absolute inset-0 bg-black/30 backdrop-blur-md"></div>
@@ -225,8 +227,9 @@
     </div>
   </section>
 
-  <!-- COLLAB -->
+  <!-- ====================== COLLAB (GANTI ORDER) ====================== -->
   <section id="collab" class="relative py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-12">
+    <!-- background glow -->
     <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-black via-[#0b0b13] to-black"></div>
     <div class="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[1200px] h-[1200px]
                 bg-[radial-gradient(ellipse_at_center,rgba(99,102,241,0.25)_0%,rgba(59,130,246,0.12)_45%,transparent_70%)]
@@ -238,7 +241,7 @@
       </h2>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <!-- Blackmatter card -->
+        <!-- Left: Blackmatter card -->
         <div class="rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-xl overflow-hidden">
           <div class="relative h-56">
             <img src="images/Background.jpg" class="absolute inset-0 w-full h-full object-cover opacity-80" alt="Blackmatter">
@@ -246,7 +249,7 @@
           </div>
           <div class="p-6">
             <h3 class="text-xl font-extrabold text-white">Blackmatter (Dark)</h3>
-            <p class="mt-2 text-sm text-gray-400">Void aesthetic, glassmorphism, neon glow.</p>
+            <p class="mt-2 text-sm text-gray-400">Void aesthetic, glassmorphism, neon glow. Cocok untuk brand yang ingin nuansa misterius & modern.</p>
             <div class="mt-4 flex gap-3">
               <a id="collabGoDark"
                  class="px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-sm cursor-pointer">Explore Black</a>
@@ -254,15 +257,16 @@
           </div>
         </div>
 
-        <!-- graffiello_v card -->
+        <!-- Right: graffiello_v card -->
         <div class="rounded-3xl border border-white/10 bg-white/[0.06] backdrop-blur-xl overflow-hidden">
           <div class="relative h-56">
+            <!-- jika ada mock putih khusus, ganti gambar ini -->
             <img src="images/logo.png" class="absolute inset-0 w-full h-full object-contain bg-white" alt="graffiello_v">
             <div class="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
           </div>
           <div class="p-6">
             <h3 class="text-xl font-extrabold text-white">graffiello_v (White)</h3>
-            <p class="mt-2 text-sm text-gray-400">Clean grid, high contrast, airy spacing.</p>
+            <p class="mt-2 text-sm text-gray-400">Clean grid, high contrast, airy spacing. Cocok untuk brand yang ingin tampil rapi & presisi.</p>
             <div class="mt-4 flex gap-3">
               <a id="collabGoWhite"
                  class="px-4 py-2 rounded-lg bg-white text-black text-sm font-semibold hover:opacity-90 cursor-pointer">Explore White</a>
@@ -319,7 +323,7 @@
     <p class="text-gray-500 text-sm">© 2025 Blackmatter. All rights reserved.</p>
   </footer>
 
-  <!-- JS -->
+  <!-- JS: toggle menu mobile + redirect collab -->
   <script>
     // Menu mobile
     const btn = document.getElementById('menuBtn');
@@ -346,8 +350,8 @@
     });
 
     // Redirect Collab buttons
-    const DARK_URL  = 'index.html#profile';
-    const WHITE_URL = 'graffiello_v/index.html'; // ganti jika perlu
+    const DARK_URL  = 'index.html#profile';       // tetap di Blackmatter
+    const WHITE_URL = 'graffiello_v/index.html';  // ganti ke URL graffiello_v yang sebenarnya
 
     document.getElementById('collabGoDark') ?.addEventListener('click', ()=> window.location.href = DARK_URL);
     document.getElementById('collabGoWhite')?.addEventListener('click', ()=> window.location.href = WHITE_URL);
