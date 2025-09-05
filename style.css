@@ -27,6 +27,52 @@ body::after {
   opacity: 0.07; /* noise tipis */
   z-index: -1;
 }
+/* ====== Efek cahaya HANYA di area logo ====== */
+/* elemen ini akan memakai mask gambar logo, sehingga semua efek
+   hanya tampil di piksel logo, bukan ke seluruh layar */
+.km-logo{
+  position:absolute; inset:0; pointer-events:none;
+  /* pakai gambar logo sebagai MASK (clip by luminance/alpha) */
+  -webkit-mask-image: url('images/Background.jpg');
+  mask-image: url('images/Background.jpg');
+  -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+  -webkit-mask-position: center;  mask-position: center;
+  -webkit-mask-size: contain;      mask-size: contain;
+  mask-mode: luminance;
+  /* bantuan agar logo berada proporsional */
+  display:block;
+}
+
+/* SUNBRUSH / flare elegan di ujung kiri & kanan logo */
+.km-logo::before{
+  content:""; position:absolute; inset:0;
+  background:
+    radial-gradient(120px 70px at 22% 62%, rgba(255,255,255,.92), rgba(255,255,255,.18) 55%, transparent 70%),
+    radial-gradient(120px 70px at 78% 62%, rgba(255,255,255,.92), rgba(255,255,255,.18) 55%, transparent 70%);
+  mix-blend-mode: screen;
+  filter: saturate(1.1) contrast(1.05);
+  opacity:.95;
+}
+
+/* Sweep putih tajam melintas di dalam logo (tanpa blur) */
+@keyframes km-logo-sweep {
+  0%   { transform: translateX(-120%) skewX(-10deg); opacity: 0; }
+  10%  { opacity:.85; }
+  50%  { transform: translateX(120%)  skewX(-10deg); opacity: 0; }
+  100% { opacity:0; }
+}
+.km-logo::after{
+  content:""; position:absolute; top:30%; bottom:32%;
+  left:-20%; width:18%;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(255,255,255,.96) 45%,
+    rgba(255,255,255,.70) 55%,
+    transparent 100%);
+  mix-blend-mode: screen;
+  transform: skewX(-10deg);
+  animation: km-logo-sweep 7.5s ease-in-out infinite;
+}
 
 /* Navbar */
 nav {
