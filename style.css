@@ -1,218 +1,55 @@
-/* Global Styles */
-body {
-  margin: 0;
-  font-family: "Arial", sans-serif;
-  background: #0d0d0d;
-  color: #ccc;
-  line-height: 1;
-  position: relative;
-  overflow-x: hidden;
-}
-
-/* Premium Background */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: radial-gradient(circle at 50% 30%, rgba(80,80,80,0.25), transparent 60%),
-              linear-gradient(to bottom, #0d0d0d, #111, #0d0d0d);
-  z-index: -2;
-}
-
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
-  opacity: 0.07; /* noise tipis */
-  z-index: -1;
-}
 /* ====== Efek cahaya HANYA di area logo ====== */
-/* elemen ini akan memakai mask gambar logo, sehingga semua efek
-   hanya tampil di piksel logo, bukan ke seluruh layar */
+/* semua efek dibatasi oleh mask logo_hd.png (bukan seluruh layar) */
 .km-logo{
   position:absolute; inset:0; pointer-events:none;
-  /* pakai gambar logo sebagai MASK (clip by luminance/alpha) */
-  -webkit-mask-image: url('images/Background.jpg');
-  mask-image: url('images/Background.jpg');
+  /* pakai gambar logo sebagai MASK */
+  -webkit-mask-image: url('images/logo_hd.png');
+  mask-image: url('images/logo_hd.png');
   -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
-  -webkit-mask-position: center;  mask-position: center;
-  -webkit-mask-size: contain;      mask-size: contain;
+  /* sedikit turun agar pas di komposisi hero kamu */
+  -webkit-mask-position: center 46%;  mask-position: center 46%;
+  -webkit-mask-size: contain;         mask-size: contain;
   mask-mode: luminance;
-  /* bantuan agar logo berada proporsional */
   display:block;
 }
 
-/* SUNBRUSH / flare elegan di ujung kiri & kanan logo */
+/* SUNBRUSH / flare elegan di ujung kiri & kanan logo (putih saja) */
 .km-logo::before{
   content:""; position:absolute; inset:0;
   background:
-    radial-gradient(120px 70px at 22% 62%, rgba(255,255,255,.92), rgba(255,255,255,.18) 55%, transparent 70%),
-    radial-gradient(120px 70px at 78% 62%, rgba(255,255,255,.92), rgba(255,255,255,.18) 55%, transparent 70%);
+    radial-gradient(110px 64px at 21% 62%, rgba(255,255,255,.96), rgba(255,255,255,.20) 58%, transparent 72%),
+    radial-gradient(110px 64px at 79% 62%, rgba(255,255,255,.96), rgba(255,255,255,.20) 58%, transparent 72%);
   mix-blend-mode: screen;
-  filter: saturate(1.1) contrast(1.05);
+  filter: contrast(1.06) saturate(1.05);
   opacity:.95;
 }
 
-/* Sweep putih tajam melintas di dalam logo (tanpa blur) */
+/* Sweep highlight putih tajam melintas DI DALAM logo (tanpa blur) */
 @keyframes km-logo-sweep {
   0%   { transform: translateX(-120%) skewX(-10deg); opacity: 0; }
-  10%  { opacity:.85; }
+  10%  { opacity:.95; }
   50%  { transform: translateX(120%)  skewX(-10deg); opacity: 0; }
   100% { opacity:0; }
 }
 .km-logo::after{
-  content:""; position:absolute; top:30%; bottom:32%;
-  left:-20%; width:18%;
+  content:""; position:absolute; 
+  /* tinggi garis di tengah logo, tidak menyentuh teks hero */
+  top:30%; bottom:32%;
+  left:-22%; width:18%;
   background: linear-gradient(90deg,
     transparent 0%,
-    rgba(255,255,255,.96) 45%,
-    rgba(255,255,255,.70) 55%,
+    #ffffff 46%,
+    #ffffff 54%,
     transparent 100%);
   mix-blend-mode: screen;
   transform: skewX(-10deg);
-  animation: km-logo-sweep 7.5s ease-in-out infinite;
+  animation: km-logo-sweep 7.2s ease-in-out infinite;
 }
 
-/* Navbar */
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  height: 60px;
-  padding: 0 30px;
-  box-sizing: border-box;
-
-  /* efek blur */
-  background: rgba(0, 0, 0, 0.6);   /* transparan hitam */
-  backdrop-filter: blur(10px);      /* tingkat blur */
-  -webkit-backdrop-filter: blur(10px); /* Safari support */
+/* (opsional) sedikit penyesuaian untuk layar kecil */
+@media (max-width:640px){
+  .km-logo::after{
+    top:34%; bottom:36%;
+    left:-28%; width:22%;
+  }
 }
-
-.logo {
-  margin: 0;              /* biar logo benar-benar nempel */
-}
-
-.logo img {
-  height: 32px;           /* sesuaikan: 28–36px biasanya pas */
-  width: auto;
-  display: block;
-  cursor: pointer;
-}
-
-.nav-links {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-}
-
-.nav-links li {
-  margin-left: 25px;
-}
-
-.nav-links a {
-  color: #ccc;
-  text-decoration: none;
-  font-size: 0.9rem;
-  transition: 0.3s;
-}
-
-.nav-links a:hover {
-  color: #fff;
-}
-
-
-/* Hero Section */
-.hero {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 0 20px;
-}
-
-.subtitle {
-  font-size: 0.9rem;
-  color: #888;
-  margin-bottom: 10px;
-}
-
-.title {
-  font-size: 3.5rem;
-  font-weight: 800;
-  color: #fff;
-  letter-spacing: 0.1em;
-}
-
-.desc {
-  margin-top: 15px;
-  font-size: 1rem;
-  color: #777;
-}
-
-/* Projects */
-.projects {
-  padding: 100px 8%;
-  text-align: center;
-}
-
-.section-title {
-  font-size: 2rem;
-  font-weight: bold;
-  letter-spacing: 0.2em;
-  margin-bottom: 50px;
-  color: #fff;
-}
-
-.project-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 30px;
-}
-
-.card {
-  background: #1a1a1a;
-  padding: 20px;
-  border-radius: 12px;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.6);
-}
-.logo-shine {
-  position: relative;
-  display: inline-block;
-  overflow: hidden;
-}
-
-.logo-shine::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -75%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(
-    120deg,
-    transparent 0%,
-    rgba(255,255,255,0.6) 50%,
-    transparent 100%
-  );
-  animation: shine 3s infinite linear;
-}
-
-@keyframes shine {
-  0% { left: -75%; }
-  100% { left: 125%; }
-}
-
