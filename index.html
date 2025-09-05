@@ -64,23 +64,35 @@
   </nav>
 
   <!-- HERO -->
-  <section id="home" class="relative min-h-[100svh] flex items-center px-4 sm:px-8 md:px-20 pt-24">
-    <img src="images/Background.jpg" alt="Blackmatter Hero"
-         class="absolute inset-0 w-full h-full object-cover opacity-30" />
-    <div class="relative z-10 max-w-2xl">
-      <h2 class="text-4xl sm:text-5xl md:text-7xl font-extrabold text-white leading-tight mb-4 sm:mb-6 drop-shadow-lg">
-        The void <br class="hidden sm:block"> speaks through my art
-      </h2>
-      <p class="text-gray-300 text-base sm:text-lg mb-8 leading-relaxed">
-        Blackmatter — ruang lahirnya logo, editing, dan seni visual untuk generasi modern.
-        Profil kreatif, karya orisinal, dan jasa desain premium tersedia di sini.
-      </p>
-      <a href="#collab"
-         class="inline-block bg-gradient-to-r from-gray-200 to-white text-black font-semibold px-6 sm:px-8 py-3 rounded-full shadow-lg hover:scale-105 hover:shadow-2xl transition-all duration-300">
-        Lihat Kolaborasi
-      </a>
-    </div>
-  </section>
+  <section id="home" class="km-hero min-h-[100svh] flex items-center px-4 sm:px-8 md:px-20 pt-24 text-center">
+
+  <!-- BG animasi dari gambar -->
+  <div class="km-hero__bg"></div>
+
+  <!-- Vignette + glow -->
+  <div class="km-hero__vignette"></div>
+
+  <!-- Light sweep -->
+  <div class="km-hero__sweep"></div>
+
+  <!-- Noise halus -->
+  <div class="km-hero__noise"></div>
+
+  <!-- Konten -->
+  <div class="relative z-10 mx-auto max-w-3xl">
+    <h2 class="text-4xl sm:text-5xl md:text-7xl font-extrabold text-white leading-tight mb-4 sm:mb-6 drop-shadow-lg">
+      The void <br class="hidden sm:block"> speaks through my art
+    </h2>
+    <p class="text-gray-300 text-base sm:text-lg mb-8 leading-relaxed">
+      Blackmatter — ruang lahirnya logo, editing, dan seni visual untuk generasi modern.
+      Profil kreatif, karya orisinal, dan jasa desain premium tersedia di sini.
+    </p>
+    <a href="#collab"
+       class="inline-block bg-gradient-to-r from-gray-200 to-white text-black font-semibold px-6 sm:px-8 py-3 rounded-full shadow-lg hover:scale-105 hover:shadow-2xl transition-all duration-300">
+      Lihat Kolaborasi
+    </a>
+  </div>
+</section>
 
 <!-- ====================== PROFILE (HERO + ABOUT + SERVICES PREVIEW) ====================== -->
 <section id="profile" class="relative bg-black text-gray-300">
@@ -453,6 +465,7 @@
   </script>
 </body>
 </html>
+
 
 
 
