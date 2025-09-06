@@ -11,81 +11,113 @@
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- ===== HERO FX: outline glow putih hanya pada logo ===== -->
-  <style>
-    .km-hero{position:relative;overflow:hidden;background:#000;isolation:isolate}
-    /* BG logo (redup, tetap hitam) */
-    .km-hero__bg{
-      position:absolute;inset:0;
-      background:#000 url('images/logo_hd.png') center 46%/contain no-repeat;
-      opacity:.18
-    }
-    /* Vignette elegan */
-    .km-hero__vignette{position:absolute;inset:-12% -8%;
-      background:
-        radial-gradient(1200px 580px at 50% 52%,rgba(255,255,255,.06),transparent 60%),
-        radial-gradient(1400px 760px at 50% -6%,rgba(0,0,0,.55),transparent 68%),
-        linear-gradient(#0006,#0006)}
-    /* Noise halus */
-    .km-hero__noise{position:absolute;inset:0;pointer-events:none;opacity:.06;mix-blend-mode:soft-light;
-      background-image:
-        repeating-linear-gradient(0deg,rgba(255,255,255,.05) 0,rgba(255,255,255,.05) 1px,transparent 2px,transparent 4px),
-        repeating-linear-gradient(90deg,rgba(255,255,255,.04) 0,rgba(255,255,255,.04) 1px,transparent 2px,transparent 4px)}
-    .km-hero__sweep{display:none} /* tidak ada sweep fullscreen */
+  <!-- HERO (ganti seluruh section lama) -->
+<section id="home" class="relative min-h-[100svh] flex items-center justify-center text-center overflow-hidden bg-black pt-24">
 
-    /* ====== BLOK LOGO (efek hanya pada siluet logo) ====== */
-    .km-logoWrap{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
-    .km-logoBox{position:relative;width:min(82vw,1080px);aspect-ratio:16/7}
+  <!-- ====== FX LOGO (SVG) — semua efek hanya di area logo ====== -->
+  <div class="absolute inset-0 grid place-items-center pointer-events-none">
+    <!-- Atur ukuran logo via width/max-w -->
+    <svg viewBox="0 0 1600 700" class="w-[88vw] max-w-[1100px]">
+      <defs>
+        <!-- ====== GUNAKAN FILE SVG LOGO ====== -->
+        <!-- Ubah href ke lokasi file SVG milikmu -->
+        <image id="logoSrc" href="images/mettalic.svg"
+               x="0" y="0" width="1600" height="700"
+               preserveAspectRatio="xMidYMid meet" />
 
-    /* Dasar logo (lebih terang sedikit dari bg) */
-    .km-logo-img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:.28}
+        <!-- Mask supaya efek hanya muncul di bentuk logo -->
+        <mask id="logoMask" maskUnits="userSpaceOnUse">
+          <!-- Versi solid (putih penuh) dari logo -->
+          <image href="images/mettalic.svg"
+                 x="0" y="0" width="1600" height="700"
+                 preserveAspectRatio="xMidYMid meet" />
+        </mask>
 
-    /* Outline glow putih (tajam, tidak buram) */
-    .km-logo-glow{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:.92;
-      filter:
-        drop-shadow(0 0 3px #fff)
-        drop-shadow(0 0 8px #fff)
-        drop-shadow(0 0 16px #fff)
-        drop-shadow(0 0 28px #fff);
-      mix-blend-mode:screen;
-      animation:km-glowPulse 3.4s ease-in-out infinite}
-    @keyframes km-glowPulse{
-      0%,100%{filter:drop-shadow(0 0 3px #fff) drop-shadow(0 0 8px #fff) drop-shadow(0 0 16px #fff) drop-shadow(0 0 26px #fff)}
-      50%    {filter:drop-shadow(0 0 1px #fff) drop-shadow(0 0 5px #fff) drop-shadow(0 0 11px #fff) drop-shadow(0 0 18px #fff)}
-    }
+        <!-- Filter glow putih elegan (multi blur + merge) -->
+        <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%" color-interpolation-filters="sRGB">
+          <feImage href="images/mettalic.svg" x="0" y="0" width="1600" height="700" preserveAspectRatio="xMidYMid meet" result="src"/>
+          <!-- Ubah jadi putih -->
+          <feColorMatrix in="src" type="matrix" values="
+            0 0 0 0 1
+            0 0 0 0 1
+            0 0 0 0 1
+            0 0 0 1 0" result="whiteLogo"/>
+          <!-- beberapa layer blur untuk aura -->
+          <feGaussianBlur in="whiteLogo" stdDeviation="1.2" result="g1"/>
+          <feGaussianBlur in="whiteLogo" stdDeviation="3.5" result="g2"/>
+          <feGaussianBlur in="whiteLogo" stdDeviation="8"   result="g3"/>
+          <feMerge>
+            <feMergeNode in="g1"/>
+            <feMergeNode in="g2"/>
+            <feMergeNode in="g3"/>
+          </feMerge>
+          <!-- sedikit boost opacity -->
+          <feComponentTransfer>
+            <feFuncA type="gamma" amplitude="1" exponent="0.75" offset="0"/>
+          </feComponentTransfer>
+        </filter>
 
-    /* Sunbrush tajam di ujung kiri/kanan logo – DI-MASK ke logo */
-    .km-sunbrush,
-    .km-outline-sweep{position:absolute;inset:0;mix-blend-mode:screen;pointer-events:none;
-      -webkit-mask-image:url('images/logo_hd.png');mask-image:url('images/logo_hd.png');
-      -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
-      -webkit-mask-position:center 46%;mask-position:center 46%;
-      -webkit-mask-size:contain;mask-size:contain}
-    .km-sunbrush:before,
-    .km-sunbrush:after{content:"";position:absolute;inset:0}
-    .km-sunbrush:before{background:radial-gradient(110px 64px at 21% 62%,#fff,rgba(255,255,255,.24) 58%,transparent 72%)}
-    .km-sunbrush:after {background:radial-gradient(110px 64px at 79% 62%,#fff,rgba(255,255,255,.24) 58%,transparent 72%)}
+        <!-- Gradien untuk garis sweep -->
+        <linearGradient id="sweepGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%"   stop-color="rgba(255,255,255,0)" />
+          <stop offset="45%"  stop-color="rgba(255,255,255,1)" />
+          <stop offset="55%"  stop-color="rgba(255,255,255,0.85)" />
+          <stop offset="100%" stop-color="rgba(255,255,255,0)" />
+        </linearGradient>
 
-    /* Garis highlight bergerak mengikuti kontur logo (putih) */
-    .km-outline-sweep{overflow:hidden}
-    .km-outline-sweep::after{
-      content:"";position:absolute;top:31%;bottom:33%;left:-25%;width:18%;
-      background:linear-gradient(90deg,transparent 0%,#ffffff 45%,#ffffff 55%,transparent 100%);
-      transform:skewX(-10deg);opacity:.95;animation:km-line 7s ease-in-out infinite}
-    @keyframes km-line{
-      0%   {transform:translateX(0)     skewX(-10deg);opacity:0}
-      10%  {opacity:1}
-      50%  {transform:translateX(240%)  skewX(-10deg);opacity:.0}
-      100% {opacity:0}
-    }
+        <!-- Sun-brush (flare) putih -->
+        <radialGradient id="flare" cx="50%" cy="50%" r="50%">
+          <stop offset="0%"   stop-color="#ffffff"/>
+          <stop offset="65%"  stop-color="rgba(255,255,255,0.25)"/>
+          <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+        </radialGradient>
+      </defs>
 
-    @media (max-width:640px){
-      .km-logoBox{width:min(92vw,1080px)}
-      .km-outline-sweep::after{top:34%;bottom:36%;left:-30%;width:22%}
-    }
-  </style>
-</head>
-<body class="bg-black text-gray-200 font-sans">
+      <!-- 1) Logo dasar (redup) untuk visibilitas bentuk -->
+      <use href="#logoSrc" opacity="0.22"></use>
+
+      <!-- 2) Aura glow putih — dikurung mask agar hanya di logo -->
+      <g style="mix-blend-mode:screen" filter="url(#softGlow)" mask="url(#logoMask)">
+        <rect x="0" y="0" width="1600" height="700" fill="#ffffff" opacity="0.96"></rect>
+      </g>
+
+      <!-- 3) Garis sweep putih (tajam) melintas di dalam logo -->
+      <g mask="url(#logoMask)" style="mix-blend-mode:screen" opacity="0.95">
+        <rect id="sweep" x="-400" y="210" width="350" height="280" fill="url(#sweepGrad)" transform="skewX(-10)"></rect>
+        <animate xlink:href="#sweep" attributeName="x" from="-400" to="1700" dur="7s" repeatCount="indefinite"/>
+      </g>
+
+      <!-- 4) Sun-brush di ujung kiri & kanan logo -->
+      <!-- Posisi diset untuk rasio 1600×700; geser cx/cy kalau perlu -->
+      <g mask="url(#logoMask)" style="mix-blend-mode:screen">
+        <ellipse cx="340"  cy="420" rx="130" ry="70" fill="url(#flare)"/>
+        <ellipse cx="1260" cy="420" rx="130" ry="70" fill="url(#flare)"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- Vignette tipis supaya tetap elegan (tanpa nyebar ke luar logo) -->
+  <div class="pointer-events-none absolute inset-0"
+       style="background:
+         radial-gradient(900px 420px at 50% 55%, rgba(255,255,255,.07), transparent 60%),
+         radial-gradient(1400px 800px at 50% -10%, rgba(0,0,0,.6), transparent 70%);">
+  </div>
+
+  <!-- Konten -->
+  <div class="relative z-10 max-w-3xl px-4">
+    <h2 class="text-4xl sm:text-5xl md:text-7xl font-extrabold text-white leading-tight mb-4 sm:mb-6 drop-shadow-lg">
+      The void <br class="hidden sm:block"> speaks through my art
+    </h2>
+    <p class="text-gray-300 text-base sm:text-lg mb-8 leading-relaxed">
+      Blackmatter — ruang lahirnya logo, editing, dan seni visual untuk generasi modern.
+      Profil kreatif, karya orisinal, dan jasa desain premium tersedia di sini.
+    </p>
+    <a href="#collab"
+       class="inline-block bg-gradient-to-r from-gray-200 to-white text-black font-semibold px-6 sm:px-8 py-3 rounded-full shadow-lg hover:scale-105 hover:shadow-2xl transition-all duration-300">
+      Lihat Kolaborasi
+    </a>
+  </div>
+</section>
 
   <!-- NAVBAR: desktop + mobile (blur kaca) -->
   <nav class="sticky top-0 z-50 bg-black/40 backdrop-blur-xl border-b border-white/10">
@@ -531,3 +563,4 @@
   </script>
 </body>
 </html>
+
