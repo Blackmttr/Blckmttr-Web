@@ -11,22 +11,22 @@
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="bg-black text-gray-200 font-sans">
 
   <!-- NAVBAR -->
   <nav class="sticky top-0 z-50 bg-black/40 backdrop-blur-xl border-b border-white/10">
     <div class="max-w-7xl mx-auto px-4 h-14 flex items-center justify-between">
-      <!-- Logo -->
       <a href="#home" class="flex items-center">
         <img src="./images/logo.png" class="h-9 w-auto" alt="Blackmatter Logo">
       </a>
 
-      <!-- Menu Desktop -->
       <ul class="hidden md:flex items-center gap-8 text-sm font-medium">
         <li><a href="#home" class="hover:text-white">Home</a></li>
         <li><a href="#profile" class="hover:text-white">Profile</a></li>
         <li><a href="#the-archive" class="hover:text-white">The Archive</a></li>
         <li><a href="#collabs" class="hover:text-white">Collabs</a></li>
+        <li><a href="#sponsors" class="hover:text-white">Sponsors</a></li>
         <li><a href="#contact" class="hover:text-white">Contact</a></li>
       </ul>
 
@@ -55,6 +55,7 @@
           <li><a href="#profile" class="block px-3 py-2 rounded-lg hover:bg-white/10">Profile</a></li>
           <li><a href="#the-archive" class="block px-3 py-2 rounded-lg hover:bg-white/10">The Archive</a></li>
           <li><a href="#collabs" class="block px-3 py-2 rounded-lg hover:bg-white/10">Collabs</a></li>
+          <li><a href="#sponsors" class="block px-3 py-2 rounded-lg hover:bg-white/10">Sponsors</a></li>
           <li><a href="#contact" class="block px-3 py-2 rounded-lg hover:bg-white/10">Contact</a></li>
         </ul>
       </div>
@@ -83,7 +84,6 @@
   <section id="profile" class="relative bg-black text-gray-300">
     <div class="pointer-events-none absolute inset-0">
       <div class="absolute inset-0 bg-[radial-gradient(1100px_520px_at_50%_-8%,rgba(255,255,255,0.12),transparent_60%)]"></div>
-      <div class="absolute inset-0 blur-2xl opacity-70 bg-[conic-gradient(from_210deg_at_60%_40%,rgba(255,255,255,0.06),transparent_20%,rgba(255,255,255,0.10),transparent_60%)]"></div>
     </div>
 
     <div class="relative max-w-7xl mx-auto px-6 pt-16 pb-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
@@ -116,7 +116,6 @@
       </div>
 
       <div class="relative rounded-3xl overflow-hidden bg-white/[0.04] backdrop-blur-xl border border-white/10">
-        <div class="absolute -inset-4 rounded-3xl bg-gradient-to-br from-white/10 to-transparent blur-2xl"></div>
         <img src="./images/Background.jpg" alt="Profile" class="relative w-full h-[420px] object-cover" />
       </div>
     </div>
@@ -126,7 +125,6 @@
       <div class="rounded-3xl overflow-hidden border border-white/10 bg-white/[0.04] backdrop-blur-xl">
         <img src="./images/itsgal.jpg" alt="About" class="w-full h-full object-cover">
       </div>
-
       <div>
         <p class="text-sm tracking-widest text-gray-300/90 uppercase">Who am I?</p>
         <h3 class="mt-2 text-2xl sm:text-3xl font-extrabold text-white">
@@ -134,7 +132,8 @@
         </h3>
         <p class="mt-4 text-gray-400 leading-relaxed">
           Terjebak dalam kehampaan, saya belajar bahwa gelap tak selalu berarti hancur.
-          Kadang, di sanalah jiwa kita terlahir kembali. <span class="text-white font-medium">BLACKMATTER</span> sebagai ruang untuk
+          Kadang, di sanalah jiwa kita terlahir kembali.
+          <span class="text-white font-medium">BLACKMATTER</span> sebagai ruang untuk
           menuangkan ide menjadi identitas visual yang tajam dan bermakna.
         </p>
       </div>
@@ -142,20 +141,17 @@
   </section>
 
   <!-- THE ARCHIVE -->
-  <section id="the-archive" class="py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-12 bg-gradient-to-b from-black to-gray-900">
-    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12 tracking-wide">The Archive</h2>
-
+  <section id="the-archive" class="py-16 px-4 sm:px-6 md:px-12 bg-gradient-to-b from-black to-gray-900">
+    <h2 class="text-3xl font-bold text-center mb-10">The Archive</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
       <a href="custom-logo.html" class="group relative rounded-2xl border border-white/10 overflow-hidden shadow-lg hover:shadow-2xl transition-all">
         <img src="./images/Background.jpg" alt="Custom Logo" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
         <p class="mt-4 text-center font-medium text-gray-200">Custom Logo</p>
       </a>
-
       <a href="accesories.html" class="group relative rounded-2xl border border-white/10 overflow-hidden shadow-lg hover:shadow-2xl transition-all">
         <img src="./images/modern.jpg" alt="Accessories" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
         <p class="mt-4 text-center font-medium text-gray-200">Accessories</p>
       </a>
-
       <a href="outfit.html" class="group relative rounded-2xl border border-white/10 overflow-hidden shadow-lg hover:shadow-2xl transition-all">
         <img src="./images/logo2.jpg" alt="Outfit" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
         <p class="mt-4 text-center font-medium text-gray-200">Outfit</p>
@@ -164,67 +160,68 @@
   </section>
 
   <!-- COLLABS -->
-  <section id="collabs" class="relative py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-12">
+  <section id="collabs" class="relative py-16 px-4 sm:px-6 md:px-12">
     <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-black via-[#0b0b13] to-black"></div>
-    <div class="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[1200px] h-[1200px]
-                bg-[radial-gradient(ellipse_at_center,rgba(99,102,241,0.25)_0%,rgba(59,130,246,0.12)_45%,transparent_70%)]
-                blur-3xl"></div>
-
     <div class="relative max-w-6xl mx-auto">
-      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 text-center tracking-wide">
+      <h2 class="text-3xl font-bold mb-12 text-center">
         <span class="text-white">BTR</span> × <span class="text-white">갈</span>
       </h2>
-
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div class="rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-xl overflow-hidden">
           <img src="./images/Background.jpg" class="w-full h-56 object-cover opacity-80" alt="Blackmatter">
           <div class="p-6">
             <h3 class="text-xl font-extrabold text-white">Blackmatter (BTR)</h3>
             <p class="mt-2 text-sm text-gray-400">Void aesthetic, glassmorphism, neon glow.</p>
-            <div class="mt-4 flex gap-3">
-              <a id="collabsGoDark"
-                 class="px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-sm cursor-pointer">Explore BTR</a>
-            </div>
           </div>
         </div>
-
         <div class="rounded-3xl border border-white/10 bg-white/[0.06] backdrop-blur-xl overflow-hidden">
           <img src="./images/logo.png" class="w-full h-56 object-contain bg-white" alt="graffiello_v">
           <div class="p-6">
             <h3 class="text-xl font-extrabold text-white">Graffiello_v (갈)</h3>
             <p class="mt-2 text-sm text-gray-400">Clean grid, high contrast, airy spacing.</p>
-            <div class="mt-4 flex gap-3">
-              <a id="collabsGoWhite"
-               class="px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-sm cursor-pointer">Explore 갈</a>
-            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- SPONSORS -->
+  <section id="sponsors" class="relative bg-black py-20">
+    <div class="relative max-w-7xl mx-auto px-4 text-center">
+      <p class="text-xs tracking-[0.2em] text-gray-400 uppercase mb-2">Trusted by</p>
+      <h3 class="text-2xl sm:text-3xl font-extrabold text-white mb-12">Our Sponsors & Partners</h3>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-y-10 gap-x-6 place-items-center">
+        <img src="./images/cuanity.png" alt="Sponsor 1" class="h-12 sm:h-14 object-contain opacity-80 hover:opacity-100 transition">
+        <img src="./images/whoimmal.png" alt="Sponsor 2" class="h-12 sm:h-14 object-contain opacity-80 hover:opacity-100 transition">
+        <img src="./images/sponsor3.png" alt="Sponsor 3" class="h-12 sm:h-14 object-contain opacity-80 hover:opacity-100 transition">
+        <img src="./images/sponsor4.png" alt="Sponsor 4" class="h-12 sm:h-14 object-contain opacity-80 hover:opacity-100 transition">
+        <img src="./images/sponsor5.png" alt="Sponsor 5" class="h-12 sm:h-14 object-contain opacity-80 hover:opacity-100 transition">
+      </div>
+    </div>
+
+    <style>
+      @keyframes sponsors-marquee { 0% { transform: translateX(0) } 100% { transform: translateX(-50%) } }
+      #sponsors .marquee { width: 200%; animation: sponsors-marquee 28s linear infinite }
+      #sponsors .marquee:hover { animation-play-state: paused }
+    </style>
+  </section>
+
   <!-- CONTACT -->
-  <section id="contact" class="py-6 bg-gradient-to-b from-gray-900 to-black text-center">
+  <section id="contact" class="py-12 bg-gradient-to-b from-gray-900 to-black text-center">
     <h2 class="text-2xl font-bold mb-2">Contact</h2>
     <p class="text-gray-400 mb-6">Temukan saya di platform berikut:</p>
-
     <div class="flex justify-center gap-10">
-      <a href="https://www.instagram.com/blackmttr?igsh=ODdpbHIxY3dkbWlh" target="_blank" rel="noopener noreferrer"
-         class="group flex flex-col items-center gap-2 hover:opacity-80 transition">
+      <a href="https://www.instagram.com/blackmttr" target="_blank" class="group flex flex-col items-center gap-2 hover:opacity-80 transition">
         <img src="./images/instagram.png" alt="Instagram" class="h-12 w-12 object-contain">
-        <span class="text-white font-normal tracking-wide">@blackmttr</span>
+        <span class="text-white">@blackmttr</span>
       </a>
-
-      <a href="https://www.tiktok.com/@_itsgal?_t=ZS-8z9YayUtc37&_r=1" target="_blank" rel="noopener noreferrer"
-         class="group flex flex-col items-center gap-1 hover:opacity-80 transition">
-        <img src="./images/tiktok.png" alt="TikTok" class="h-12 w-12 object-contain mx-auto">
-        <span class="text-white font-normal tracking-wide">@_itsgal</span>
+      <a href="https://www.tiktok.com/@_itsgal" target="_blank" class="group flex flex-col items-center gap-2 hover:opacity-80 transition">
+        <img src="./images/tiktok.png" alt="TikTok" class="h-12 w-12 object-contain">
+        <span class="text-white">@_itsgal</span>
       </a>
-
-      <a href="https://www.behance.net/g632" target="_blank" rel="noopener noreferrer"
-         class="group flex flex-col items-center gap-2 hover:opacity-80 transition">
+      <a href="https://www.behance.net/g632" target="_blank" class="group flex flex-col items-center gap-2 hover:opacity-80 transition">
         <img src="./images/behance.png" alt="Behance" class="h-12 w-12 object-contain">
-        <span class="text-white font-normal tracking-wide">/g632</span>
+        <span class="text-white">/g632</span>
       </a>
     </div>
   </section>
@@ -234,6 +231,7 @@
     <p class="text-gray-500 text-sm">© 2025 Blackmatter. All rights reserved.</p>
   </footer>
 
+  <!-- JS: Mobile Menu -->
   <script>
     const btn = document.getElementById('menuBtn');
     const panel = document.getElementById('menuPanel');
@@ -249,123 +247,13 @@
 
     panel.querySelectorAll('a').forEach(a => {
       a.addEventListener('click', () => {
-        if (!panel.classList.contains('hidden')) {
-          panel.classList.add('hidden');
-          btn.setAttribute('aria-expanded', 'false');
-          iconOpen.classList.remove('hidden');
-          iconClose.classList.add('hidden');
-        }
+        panel.classList.add('hidden');
+        btn.setAttribute('aria-expanded', 'false');
+        iconOpen.classList.remove('hidden');
+        iconClose.classList.add('hidden');
       });
     });
-
-  <!-- ====================== SPONSORS ====================== -->
-<section id="sponsors" class="relative bg-black">
-  <div class="relative max-w-7xl mx-auto px-4 py-12 sm:py-16">
-    <div class="text-center mb-8">
-      <p class="text-xs tracking-[0.2em] text-gray-400 uppercase">Trusted by</p>
-      <h3 class="mt-2 text-2xl sm:text-3xl font-extrabold text-white">Our Sponsors & Partners</h3>
-    </div>
-
-    <!-- GRID: TANPA BACKGROUND/BORDER, LOGO UKURAN SEDANG -->
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-y-10 sm:gap-y-12 gap-x-6 sm:gap-x-10 place-items-center">
-      <a href="https://www.instagram.com/cuanity.co?igsh=MWI0Mjk2cHo0eGdjbw==/sponsor1" target="_blank" rel="noopener" class="group">
-        <img src="./images/cuanity.png"
-             onerror="this.onerror=null;this.src='../images/cuanity.jpg?v=2';"
-             alt="Sponsor 1"
-             class="h-12 sm:h-14 object-contain opacity-80 group-hover:opacity-100 transition" />
-      </a>
-
-      <a href="https://www.instagram.com/sponsor2" target="_blank" rel="noopener" class="group">
-        <img src="./images/whoimmal.png"
-             alt="Sponsor 2"
-             class="h-12 sm:h-14 object-contain opacity-80 group-hover:opacity-100 transition" />
-      </a>
-
-      <a href="https://www.instagram.com/sponsor3" target="_blank" rel="noopener" class="group">
-        <img src="../images/sponsors/logo-3.png"
-             alt="Sponsor 3"
-             class="h-12 sm:h-14 object-contain opacity-80 group-hover:opacity-100 transition" />
-      </a>
-
-      <a href="https://www.instagram.com/sponsor4" target="_blank" rel="noopener" class="group">
-        <img src="../images/sponsors/logo-4.png"
-             alt="Sponsor 4"
-             class="h-12 sm:h-14 object-contain opacity-80 group-hover:opacity-100 transition" />
-      </a>
-
-      <a href="https://www.instagram.com/sponsor5" target="_blank" rel="noopener" class="group">
-        <img src="../images/sponsors/logo-5.png"
-             alt="Sponsor 5"
-             class="h-12 sm:h-14 object-contain opacity-80 group-hover:opacity-100 transition" />
-      </a>
-    </div>
-
-    <!-- MARQUEE (desktop) TANPA BACKGROUND JUGA -->
-    <div class="mt-12 hidden md:block">
-      <div class="relative overflow-hidden">
-        <div class="marquee flex items-center gap-16 p-2">
-          <img src="../images/cuanity.png" onerror="this.onerror=null;this.src='../images/cuanity.jpg?v=2';" alt="Sponsor 1" class="h-12 object-contain opacity-60 hover:opacity-100 transition" />
-          <img src="../images/sponsors/logo-2.png" alt="Sponsor 2" class="h-12 object-contain opacity-60 hover:opacity-100 transition" />
-          <img src="../images/sponsors/logo-3.png" alt="Sponsor 3" class="h-12 object-contain opacity-60 hover:opacity-100 transition" />
-          <img src="../images/sponsors/logo-4.png" alt="Sponsor 4" class="h-12 object-contain opacity-60 hover:opacity-100 transition" />
-          <img src="../images/sponsors/logo-5.png" alt="Sponsor 5" class="h-12 object-contain opacity-60 hover:opacity-100 transition" />
-
-          <!-- duplikasi untuk loop mulus -->
-          <img src="../images/cuanity.png" onerror="this.onerror=null;this.src='../images/cuanity.jpg?v=2';" alt="Sponsor 1" class="h-12 object-contain opacity-60 hover:opacity-100 transition" />
-          <img src="../images/sponsors/logo-2.png" alt="Sponsor 2" class="h-12 object-contain opacity-60 hover:opacity-100 transition" />
-          <img src="../images/sponsors/logo-3.png" alt="Sponsor 3" class="h-12 object-contain opacity-60 hover:opacity-100 transition" />
-          <img src="../images/sponsors/logo-4.png" alt="Sponsor 4" class="h-12 object-contain opacity-60 hover:opacity-100 transition" />
-          <img src="../images/sponsors/logo-5.png" alt="Sponsor 5" class="h-12 object-contain opacity-60 hover:opacity-100 transition" />
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <style>
-    @keyframes sponsors-marquee { 0% { transform: translateX(0) } 100% { transform: translateX(-50%) } }
-    #sponsors .marquee { width: 200%; animation: sponsors-marquee 28s linear infinite }
-    #sponsors .marquee:hover { animation-play-state: paused }
-  </style>
-</section>
-
-  <!-- FOOTER -->
-  <footer class="py-2 text-center bg-black border-t border-gray-800">
-    <p class="text-gray-500 text-sm">© 2025 Blackmatter. All rights reserved.</p>
-  </footer>
-
-  <!-- JS: toggle menu mobile + redirect collab -->
-  <script>
-    // Menu mobile
-    const btn = document.getElementById('menuBtn');
-    const panel = document.getElementById('menuPanel');
-    const iconOpen = document.getElementById('iconOpen');
-    const iconClose = document.getElementById('iconClose');
-
-    btn.addEventListener('click', () => {
-      const isHidden = panel.classList.toggle('hidden');
-      btn.setAttribute('aria-expanded', String(!isHidden));
-      iconOpen.classList.toggle('hidden');
-      iconClose.classList.toggle('hidden');
-    });
-
-    panel.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        if (!panel.classList.contains('hidden')) {
-          panel.classList.add('hidden');
-          btn.setAttribute('aria-expanded', 'false');
-          iconOpen.classList.remove('hidden');
-          iconClose.classList.add('hidden');
-        }
-      });
-    });
-
-    // Redirect Collab buttons
-    const DARK_URL  = 'index.html#profile';       // tetap di Blackmatter
-    const WHITE_URL = 'graffiello_v/index.html';  // ganti ke URL graffiello_v yang sebenarnya
-
-    document.getElementById('collabGoDark') ?.addEventListener('click', ()=> window.location.href = DARK_URL);
-    document.getElementById('collabGoWhite')?.addEventListener('click', ()=> window.location.href = WHITE_URL);
   </script>
+
 </body>
 </html>
-
