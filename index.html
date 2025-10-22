@@ -258,12 +258,114 @@
       });
     });
 
-    // Collab redirect
-    const DARK_URL  = 'index.html#profile';
-    const WHITE_URL = 'graffiello_v/index.html';
+  <!-- ====================== SPONSORS ====================== -->
+<section id="sponsors" class="relative bg-black">
+  <div class="relative max-w-7xl mx-auto px-4 py-12 sm:py-16">
+    <div class="text-center mb-8">
+      <p class="text-xs tracking-[0.2em] text-gray-400 uppercase">Trusted by</p>
+      <h3 class="mt-2 text-2xl sm:text-3xl font-extrabold text-white">Our Sponsors & Partners</h3>
+    </div>
 
-    document.getElementById('collabsGoDark') ?.addEventListener('click', ()=> window.location.href = DARK_URL);
-    document.getElementById('collabsGoWhite')?.addEventListener('click', ()=> window.location.href = WHITE_URL);
+    <!-- GRID: TANPA BACKGROUND/BORDER, LOGO UKURAN SEDANG -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-y-10 sm:gap-y-12 gap-x-6 sm:gap-x-10 place-items-center">
+      <a href="https://www.instagram.com/cuanity.co?igsh=MWI0Mjk2cHo0eGdjbw==/sponsor1" target="_blank" rel="noopener" class="group">
+        <img src="./images/cuanity.png"
+             onerror="this.onerror=null;this.src='../images/cuanity.jpg?v=2';"
+             alt="Sponsor 1"
+             class="h-12 sm:h-14 object-contain opacity-80 group-hover:opacity-100 transition" />
+      </a>
+
+      <a href="https://www.instagram.com/sponsor2" target="_blank" rel="noopener" class="group">
+        <img src="./images/whoimmal.png"
+             alt="Sponsor 2"
+             class="h-12 sm:h-14 object-contain opacity-80 group-hover:opacity-100 transition" />
+      </a>
+
+      <a href="https://www.instagram.com/sponsor3" target="_blank" rel="noopener" class="group">
+        <img src="../images/sponsors/logo-3.png"
+             alt="Sponsor 3"
+             class="h-12 sm:h-14 object-contain opacity-80 group-hover:opacity-100 transition" />
+      </a>
+
+      <a href="https://www.instagram.com/sponsor4" target="_blank" rel="noopener" class="group">
+        <img src="../images/sponsors/logo-4.png"
+             alt="Sponsor 4"
+             class="h-12 sm:h-14 object-contain opacity-80 group-hover:opacity-100 transition" />
+      </a>
+
+      <a href="https://www.instagram.com/sponsor5" target="_blank" rel="noopener" class="group">
+        <img src="../images/sponsors/logo-5.png"
+             alt="Sponsor 5"
+             class="h-12 sm:h-14 object-contain opacity-80 group-hover:opacity-100 transition" />
+      </a>
+    </div>
+
+    <!-- MARQUEE (desktop) TANPA BACKGROUND JUGA -->
+    <div class="mt-12 hidden md:block">
+      <div class="relative overflow-hidden">
+        <div class="marquee flex items-center gap-16 p-2">
+          <img src="../images/cuanity.png" onerror="this.onerror=null;this.src='../images/cuanity.jpg?v=2';" alt="Sponsor 1" class="h-12 object-contain opacity-60 hover:opacity-100 transition" />
+          <img src="../images/sponsors/logo-2.png" alt="Sponsor 2" class="h-12 object-contain opacity-60 hover:opacity-100 transition" />
+          <img src="../images/sponsors/logo-3.png" alt="Sponsor 3" class="h-12 object-contain opacity-60 hover:opacity-100 transition" />
+          <img src="../images/sponsors/logo-4.png" alt="Sponsor 4" class="h-12 object-contain opacity-60 hover:opacity-100 transition" />
+          <img src="../images/sponsors/logo-5.png" alt="Sponsor 5" class="h-12 object-contain opacity-60 hover:opacity-100 transition" />
+
+          <!-- duplikasi untuk loop mulus -->
+          <img src="../images/cuanity.png" onerror="this.onerror=null;this.src='../images/cuanity.jpg?v=2';" alt="Sponsor 1" class="h-12 object-contain opacity-60 hover:opacity-100 transition" />
+          <img src="../images/sponsors/logo-2.png" alt="Sponsor 2" class="h-12 object-contain opacity-60 hover:opacity-100 transition" />
+          <img src="../images/sponsors/logo-3.png" alt="Sponsor 3" class="h-12 object-contain opacity-60 hover:opacity-100 transition" />
+          <img src="../images/sponsors/logo-4.png" alt="Sponsor 4" class="h-12 object-contain opacity-60 hover:opacity-100 transition" />
+          <img src="../images/sponsors/logo-5.png" alt="Sponsor 5" class="h-12 object-contain opacity-60 hover:opacity-100 transition" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    @keyframes sponsors-marquee { 0% { transform: translateX(0) } 100% { transform: translateX(-50%) } }
+    #sponsors .marquee { width: 200%; animation: sponsors-marquee 28s linear infinite }
+    #sponsors .marquee:hover { animation-play-state: paused }
+  </style>
+</section>
+
+  <!-- FOOTER -->
+  <footer class="py-2 text-center bg-black border-t border-gray-800">
+    <p class="text-gray-500 text-sm">© 2025 Blackmatter. All rights reserved.</p>
+  </footer>
+
+  <!-- JS: toggle menu mobile + redirect collab -->
+  <script>
+    // Menu mobile
+    const btn = document.getElementById('menuBtn');
+    const panel = document.getElementById('menuPanel');
+    const iconOpen = document.getElementById('iconOpen');
+    const iconClose = document.getElementById('iconClose');
+
+    btn.addEventListener('click', () => {
+      const isHidden = panel.classList.toggle('hidden');
+      btn.setAttribute('aria-expanded', String(!isHidden));
+      iconOpen.classList.toggle('hidden');
+      iconClose.classList.toggle('hidden');
+    });
+
+    panel.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        if (!panel.classList.contains('hidden')) {
+          panel.classList.add('hidden');
+          btn.setAttribute('aria-expanded', 'false');
+          iconOpen.classList.remove('hidden');
+          iconClose.classList.add('hidden');
+        }
+      });
+    });
+
+    // Redirect Collab buttons
+    const DARK_URL  = 'index.html#profile';       // tetap di Blackmatter
+    const WHITE_URL = 'graffiello_v/index.html';  // ganti ke URL graffiello_v yang sebenarnya
+
+    document.getElementById('collabGoDark') ?.addEventListener('click', ()=> window.location.href = DARK_URL);
+    document.getElementById('collabGoWhite')?.addEventListener('click', ()=> window.location.href = WHITE_URL);
   </script>
 </body>
 </html>
+
