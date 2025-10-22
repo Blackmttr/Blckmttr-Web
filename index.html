@@ -10,111 +10,6 @@
 
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- ====== HERO FX: semua efek putih fokus di logo ====== -->
-  <style>
-    /* Section hero full hitam dan rapi */
-    .km-hero{position:relative;overflow:hidden;background:#000;isolation:isolate}
-
-    /* Wrapper logo (posisi tengah layar) */
-    .km-logo-wrap{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
-    .km-logo-frame{
-      position:relative;
-      width:min(88vw,1100px);
-      aspect-ratio:16/7;
-      background:#000;    /* dasar logo hitam pekat */
-      contain:paint;
-    }
-
-    /* Gambar logo dasar (agar bentuk terlihat) */
-    .km-logo-base{
-      position:absolute;inset:0;width:100%;height:100%;
-      object-fit:contain;opacity:.26; /* redup saja */
-    }
-
-    /* ====== Efek cahaya HANYA di area logo ======
-       semua efek dibatasi oleh mask logo_hd.png (bukan seluruh layar) */
-    .km-logo{
-      position:absolute; inset:0;
-      /* pakai gambar logo sebagai MASK */
-      -webkit-mask-image: url('images/logo_hd.png');
-      mask-image: url('images/logo_hd.png');
-      -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
-      -webkit-mask-position: center 50%;  mask-position: center 50%;
-      -webkit-mask-size: contain;         mask-size: contain;
-      mask-mode: luminance;
-      display:block;
-      mix-blend-mode:screen;
-    }
-
-    /* SUNBRUSH / flare elegan di ujung kiri & kanan logo (putih) */
-    .km-logo::before{
-      content:""; position:absolute; inset:0;
-      background:
-        radial-gradient(120px 70px at 22% 62%, rgba(255,255,255,.96), rgba(255,255,255,.20) 55%, transparent 70%),
-        radial-gradient(120px 70px at 78% 62%, rgba(255,255,255,.96), rgba(255,255,255,.20) 55%, transparent 70%);
-      filter: contrast(1.06) saturate(1.05);
-      opacity:.95;
-    }
-
-    /* Garis sweep putih tajam melintas DI DALAM logo (tanpa blur) */
-    @keyframes km-logo-sweep {
-      0%   { transform: translateX(-120%) skewX(-10deg); opacity: 0; }
-      10%  { opacity:.95; }
-      50%  { transform: translateX(120%)  skewX(-10deg); opacity: 0; }
-      100% { opacity:0; }
-    }
-    .km-logo::after{
-      content:""; position:absolute;
-      top:30%; bottom:32%;   /* tinggi garis, pas di tengah logo */
-      left:-22%; width:18%;
-      background: linear-gradient(90deg,
-        transparent 0%,
-        #ffffff 46%,
-        #ffffff 54%,
-        transparent 100%);
-      transform: skewX(-10deg);
-      animation: km-logo-sweep 7.2s ease-in-out infinite;
-      opacity:.95;
-    }
-
-    /* Glow outline putih halus di pinggir logo (drop-shadow berlapis) */
-    .km-logo-glow{
-      position:absolute; inset:0; width:100%; height:100%; object-fit:contain; opacity:.9;
-      filter:
-        drop-shadow(0 0 3px #fff)
-        drop-shadow(0 0 8px #fff)
-        drop-shadow(0 0 16px #fff)
-        drop-shadow(0 0 26px #fff);
-      mix-blend-mode:screen;
-      animation:km-glowPulse 3.6s ease-in-out infinite;
-      -webkit-mask-image: url('images/logo_hd.png'); mask-image: url('images/logo_hd.png');
-      -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat;
-      -webkit-mask-position:center 50%; mask-position:center 50%;
-      -webkit-mask-size:contain; mask-size:contain;
-    }
-    @keyframes km-glowPulse{
-      0%,100%{filter:drop-shadow(0 0 3px #fff) drop-shadow(0 0 8px #fff) drop-shadow(0 0 16px #fff) drop-shadow(0 0 26px #fff)}
-      50%    {filter:drop-shadow(0 0 1px #fff) drop-shadow(0 0 5px #fff) drop-shadow(0 0 11px #fff) drop-shadow(0 0 18px #fff)}
-    }
-
-    /* Vignette lembut (tipis) agar elegan */
-    .km-hero-vignette{
-      position:absolute; inset:0; pointer-events:none;
-      background:
-        radial-gradient(900px 420px at 50% 55%, rgba(255,255,255,.07), transparent 60%),
-        radial-gradient(1400px 800px at 50% -10%, rgba(0,0,0,.6), transparent 70%);
-    }
-
-    /* mobile touch */
-    @media (max-width:640px){
-      .km-logo::after{ top:34%; bottom:36%; left:-28%; width:22%; }
-    }
-  </style>
-</head>
-
-<body class="bg-black text-gray-200 font-sans">
-
   <!-- NAVBAR -->
   <nav class="sticky top-0 z-50 bg-black/40 backdrop-blur-xl border-b border-white/10">
     <div class="max-w-7xl mx-auto px-4 h-14 flex items-center justify-between">
@@ -536,3 +431,4 @@
   </script>
 </body>
 </html>
+
