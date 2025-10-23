@@ -272,3 +272,57 @@ footer {
     width: 80px;
   }
 }
+/* ========== GENERAL CUSTOMIZATION ========== */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Text glow effect */
+h2, h3 {
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.08);
+}
+
+/* Gradient fade (section separation) */
+section {
+  position: relative;
+  isolation: isolate;
+}
+
+/* Navbar shadow glass */
+nav {
+  box-shadow: 0 2px 10px rgba(255, 255, 255, 0.03);
+}
+
+/* Marquee animation for sponsor logos */
+.marquee {
+  animation: marquee 25s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Sponsor hover glow */
+#sponsors img:hover {
+  filter: brightness(1.2) drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
+}
+
+/* Hero gradient overlay */
+#home::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.06), transparent 70%);
+  z-index: 0;
+}
+
+/* Smooth hover scaling */
+a, button {
+  transition: all 0.3s ease;
+}
+
