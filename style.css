@@ -1,84 +1,38 @@
-/* ====== Efek cahaya HANYA di area logo ====== */
-/* semua efek dibatasi oleh mask logo_hd.png (bukan seluruh layar) */
-.km-logo{
-  position:absolute; inset:0; pointer-events:none;
-  /* pakai gambar logo sebagai MASK */
-  -webkit-mask-image: url('images/logo_hd.png');
-  mask-image: url('images/logo_hd.png');
-  -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
-  /* sedikit turun agar pas di komposisi hero kamu */
-  -webkit-mask-position: center 46%;  mask-position: center 46%;
-  -webkit-mask-size: contain;         mask-size: contain;
-  mask-mode: luminance;
-  display:block;
+/* ==================== GLOBAL ==================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* SUNBRUSH / flare elegan di ujung kiri & kanan logo (putih saja) */
-.km-logo::before{
-  content:""; position:absolute; inset:0;
-  background:
-    radial-gradient(110px 64px at 21% 62%, rgba(255,255,255,.96), rgba(255,255,255,.20) 58%, transparent 72%),
-    radial-gradient(110px 64px at 79% 62%, rgba(255,255,255,.96), rgba(255,255,255,.20) 58%, transparent 72%);
-  mix-blend-mode: screen;
-  filter: contrast(1.06) saturate(1.05);
-  opacity:.95;
-}
-
-/* Sweep highlight putih tajam melintas DI DALAM logo (tanpa blur) */
-@keyframes km-logo-sweep {
-  0%   { transform: translateX(-120%) skewX(-10deg); opacity: 0; }
-  10%  { opacity:.95; }
-  50%  { transform: translateX(120%)  skewX(-10deg); opacity: 0; }
-  100% { opacity:0; }
-}
-.km-logo::after{
-  content:""; position:absolute; 
-  /* tinggi garis di tengah logo, tidak menyentuh teks hero */
-  top:30%; bottom:32%;
-  left:-22%; width:18%;
-  background: linear-gradient(90deg,
-    transparent 0%,
-    #ffffff 46%,
-    #ffffff 54%,
-    transparent 100%);
-  mix-blend-mode: screen;
-  transform: skewX(-10deg);
-  animation: km-logo-sweep 7.2s ease-in-out infinite;
-}
-
-/* (opsional) sedikit penyesuaian untuk layar kecil */
-@media (max-width:640px){
-  .km-logo::after{
-    top:34%; bottom:36%;
-    left:-28%; width:22%;
-  }
-}
 body {
   background-color: #000;
   color: #fff;
+  font-family: 'Poppins', sans-serif;
   overflow-x: hidden;
 }
 
-/* === NAVBAR === */
+/* ==================== NAVBAR ==================== */
 nav {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 70px;
+  background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(10px);
-  background: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
+  padding: 0 28px;
   z-index: 1000;
 }
 
 .logo {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: 700;
   letter-spacing: 2px;
+  color: #fff;
 }
 
 .menu-icon {
@@ -90,7 +44,7 @@ nav {
 ul.nav-links {
   list-style: none;
   display: flex;
-  gap: 25px;
+  gap: 28px;
 }
 
 ul.nav-links li a {
@@ -104,7 +58,7 @@ ul.nav-links li a:hover {
   color: #888;
 }
 
-/* === MOBILE MENU === */
+/* === Mobile Menu === */
 @media (max-width: 768px) {
   .menu-icon {
     display: block;
@@ -130,9 +84,66 @@ ul.nav-links li a:hover {
   }
 }
 
-/* === SPONSOR SLIDER === */
+/* ==================== HERO LOGO EFFECT ==================== */
+.km-logo {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  -webkit-mask-image: url('images/logo_hd.png');
+  mask-image: url('images/logo_hd.png');
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center 46%;
+  mask-position: center 46%;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  mask-mode: luminance;
+  display: block;
+}
+
+.km-logo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(110px 64px at 21% 62%, rgba(255,255,255,.96), rgba(255,255,255,.20) 58%, transparent 72%),
+    radial-gradient(110px 64px at 79% 62%, rgba(255,255,255,.96), rgba(255,255,255,.20) 58%, transparent 72%);
+  mix-blend-mode: screen;
+  opacity: .95;
+}
+
+@keyframes km-logo-sweep {
+  0% { transform: translateX(-120%) skewX(-10deg); opacity: 0; }
+  10% { opacity: .95; }
+  50% { transform: translateX(120%) skewX(-10deg); opacity: 0; }
+  100% { opacity: 0; }
+}
+
+.km-logo::after {
+  content: "";
+  position: absolute;
+  top: 30%;
+  bottom: 32%;
+  left: -22%;
+  width: 18%;
+  background: linear-gradient(90deg, transparent 0%, #fff 46%, #fff 54%, transparent 100%);
+  mix-blend-mode: screen;
+  transform: skewX(-10deg);
+  animation: km-logo-sweep 7.2s ease-in-out infinite;
+}
+
+@media (max-width: 640px) {
+  .km-logo::after {
+    top: 34%;
+    bottom: 36%;
+    left: -28%;
+    width: 22%;
+  }
+}
+
+/* ==================== SPONSOR SLIDER (Loop Sempurna) ==================== */
 .sponsor-section {
-  margin-top: 100px;
+  margin-top: 120px;
   overflow: hidden;
   white-space: nowrap;
   position: relative;
@@ -140,7 +151,11 @@ ul.nav-links li a:hover {
 
 .sponsor-track {
   display: inline-flex;
-  animation: scroll 20s linear infinite;
+  animation: scrollLoop 25s linear infinite;
+}
+
+.sponsor-track:hover {
+  animation-play-state: paused;
 }
 
 .sponsor {
@@ -150,20 +165,60 @@ ul.nav-links li a:hover {
 }
 
 .sponsor img {
-  width: 100px;
+  width: 110px;
   height: auto;
 }
 
-@keyframes scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+@keyframes scrollLoop {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
-/* === CONTENT PLACEHOLDER === */
-.content {
-  margin-top: 200px;
+/* ==================== CONTENT SECTION ==================== */
+.section {
+  padding: 100px 20px;
+  text-align: center;
+}
 
+.section-title {
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  color: #f1f1f1;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==================== RESPONSIVE ADJUSTMENTS ==================== */
+@media (max-width: 768px) {
+  .section {
+    padding: 70px 15px;
+  }
+
+  .section-title {
+    font-size: 1.4rem;
+  }
+
+  .sponsor img {
+    width: 80px;
+  }
+
+  .sponsor {
+    margin: 0 25px;
+  }
+}
