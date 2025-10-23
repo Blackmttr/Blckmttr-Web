@@ -11,7 +11,7 @@
 
   <!-- Hero Section -->
   <section class="relative h-screen flex items-center justify-center">
-    <img src="./images/graffiellogo.png" alt="Luxury Estate" class="absolute inset-0 w-full h-full object-cover opacity-90">
+    <img src="./images/me.jpeg" alt="Luxury Estate" class="absolute inset-0 w-full h-full object-cover opacity-90">
     <div class="absolute inset-0 bg-gradient-to-b from-white/0 to-white/80"></div>
 
     <div class="relative text-center max-w-2xl px-6">
@@ -115,32 +115,61 @@
     </div>
   </section>
 
-  <!-- Contact / Footer -->
-  <footer class="bg-gray-100 py-12 text-center">
-    <h3 class="text-2xl font-semibold mb-8">Let’s Stay Connected</h3>
-    <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto text-gray-700 mb-10">
-      <div>
-        <p class="font-semibold mb-1">Email address</p>
-        <p>info@company.com</p>
-      </div>
-      <div>
-        <p class="font-semibold mb-1">Phone number</p>
-        <p>+1 234 567 890</p>
-      </div>
-      <div>
-        <p class="font-semibold mb-1">Address</p>
-        <p>123 Main Street, City, Country</p>
+  <!-- COLLAB -->
+  <section id="collab" class="py-20 bg-gray-100">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold mb-8">갈 × BTR</h2>
+      <p class="text-gray-600 mb-10">Dua persona visual — keseimbangan antara kehampaan dan presisi.</p>
+
+      <div class="grid sm:grid-cols-2 gap-8">
+        <div class="border border-gray-200 rounded-3xl p-6 bg-white shadow-md">
+          <img src="./images/graffiello.jpg" class="w-full h-40 object-cover rounded-xl mb-4" alt="Graffiello_v">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+          <h3 class="text-lg font-semibold text-gray-900">Graffiello_v(갈)</h3>
+          <p class="text-gray-600 text-sm mt-2">White theme — clean, precise, bright.</p>
+          <a id="collabGoGraffiello_v" class="mt-4 inline-block px-5 py-2 bg-black/20 text-white rounded-lg cursor-pointer">Explore 갈</a>
+        </div>
+        <div class="border border-gray-200 rounded-3xl p-6 bg-white shadow-md">
+          <img src="./images/Background.jpg" class="w-full h-40 object-cover rounded-xl mb-4" alt="Blackmatter">
+          <h3 class="text-lg font-semibold text-gray-900">Blackmatter (BTR)</h3>
+          <p class="text-gray-600 text-sm mt-2">Dark theme — void, mystery, contrast.</p>
+           <a href="index.html" 
+          <a id="collabGoDark" class="mt-4 inline-block px-5 py-2 bg-black/20 text-white rounded-lg cursor-pointer">Explore BTR </a>
+          </a>
+        </div>
       </div>
     </div>
+  </section>
 
-    <!-- Back to Blackmatter -->
-    <a href="./index.html"
-       class="inline-block bg-gray-900 text-white px-6 py-3 rounded-full hover:bg-gray-800 transition">
-       ← Back to Blackmatter
-    </a>
+  <!-- CONTACT -->
+  <section id="contact" class="py-16 text-center bg-gray-50">
+    <h2 class="text-2xl font-bold mb-2">Contact</h2>
+    <p class="text-gray-500 mb-6">Follow for updates and collaborations:</p>
 
-    <p class="text-gray-500 text-sm mt-6">© 2025 Graffiello_V. All rights reserved.</p>
+    <div class="flex justify-center gap-10">
+      <a href="https://www.instagram.com/graffiello_v" target="_blank">
+        <img src="./images/instagram.png" class="h-10 w-10 mx-auto mb-2" alt="Instagram">
+        <span class="block text-gray-800">@graffiello_v</span>
+      </a>
+      <a href="https://www.behance.net/g632" target="_blank">
+        <img src="./images/behance.png" class="h-10 w-10 mx-auto mb-2" alt="Behance">
+        <span class="block text-gray-800">/g632</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-4 text-center border-t border-gray-200">
+    <p class="text-gray-500 text-sm">© 2025 Graffiello_V. All rights reserved.</p>
   </footer>
 
+  <!-- JS: Hubungkan antar situs -->
+  <script>
+    const DARK_URL  = '../index.html';      // kembali ke Blackmatter
+    const WHITE_URL = 'index.html#about';   // tetap di Graffiello_V
+
+    document.getElementById('collabGoDark') ?.addEventListener('click', ()=> window.location.href = DARK_URL);
+    document.getElementById('collabGoWhite')?.addEventListener('click', ()=> window.location.href = WHITE_URL);
+  </script>
 </body>
 </html>
