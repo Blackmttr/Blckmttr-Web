@@ -144,73 +144,80 @@
     </div>
   </div>
 
-  <!-- MODAL ORDER -->
-  <div id="orderModal" class="fixed inset-0 hidden items-center justify-center bg-black/70 backdrop-blur-md z-[60]">
-    <div class="max-w-xl w-[92%] bg-black/70 border border-white/10 rounded-2xl overflow-hidden">
-      <div class="flex items-center justify-between px-4 py-3 border-b border-white/10">
-        <h4 class="font-semibold">Order</h4>
-        <button id="closeOrder" class="px-3 py-1 rounded-md bg-white/10 hover:bg-white/20">Tutup</button>
+<!-- MODAL ORDER -->
+<div id="orderModal" class="fixed inset-0 hidden items-center justify-center bg-black/70 backdrop-blur-md z-[60]">
+  <div class="max-w-xl w-[92%] bg-black/70 border border-white/10 rounded-2xl overflow-hidden">
+    <div class="flex items-center justify-between px-4 py-3 border-b border-white/10">
+      <h4 class="font-semibold">Order</h4>
+      <button id="closeOrder" class="px-3 py-1 rounded-md bg-white/10 hover:bg-white/20">Tutup</button>
+    </div>
+
+    <!-- === FORM YANG DIARAHKAN KE EMAIL === -->
+    <form id="orderForm"
+          action="https://formsubmit.co/blackmatterrrr@gmail.com"
+          method="POST" enctype="multipart/form-data"
+          class="p-5 space-y-4">
+
+      <!-- Hidden configs -->
+      <input type="hidden" name="_subject" value="Order Custom Logo — Blackmatter">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="../thanks.html">
+      <input type="hidden" name="_autoresponse" value="Terima kasih! Pesanan Anda sudah kami terima. Kami akan balas via email secepatnya. — Blackmatter">
+
+      <!-- Produk -->
+      <div>
+        <label class="block text-sm text-gray-400 mb-1">Produk</label>
+        <input id="prodInput" name="Produk" readonly class="w-full px-3 py-2 rounded-lg bg-black/60 border border-white/10 text-white">
       </div>
 
-      <!-- === FORM YANG DIARAHKAN KE EMAIL & THANKS === -->
-      <form id="orderForm"
-            action="https://formsubmit.co/blackmatterrrr@gmail.com"
-            method="POST" enctype="multipart/form-data"
-            class="p-5 space-y-4">
-        <!-- FormSubmit options -->
-        <input type="hidden" name="_subject"      value="Order Custom Logo — Blackmatter">
-        <input type="hidden" name="_template"     value="table">
-        <input type="hidden" name="_captcha"      value="false">
-        <input type="hidden" name="_next"         value="../thanks.html">
-        <input type="hidden" name="_autoresponse" value="Terima kasih! Pesanan Anda sudah kami terima. Kami akan balas via email secepatnya. — Blackmatter">
-
-        <!-- Produk -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
         <div>
-          <label class="block text-sm text-gray-400 mb-1">Produk</label>
-          <input id="prodInput" name="Produk" readonly class="w-full px-3 py-2 rounded-lg bg-black/60 border border-white/10 text-white">
+          <label class="block text-sm text-gray-400 mb-1">Nama</label>
+          <input required name="Nama" id="nameInput" class="w-full px-3 py-2 rounded-lg bg-black/60 border border-white/10 text-white">
         </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <div>
-            <label class="block text-sm text-gray-400 mb-1">Nama</label>
-            <input required name="Nama" class="w-full px-3 py-2 rounded-lg bg-black/60 border border-white/10 text-white">
-          </div>
-          <div>
-            <label class="block text-sm text-gray-400 mb-1">Email</label>
-            <input required type="email" name="Email" class="w-full px-3 py-2 rounded-lg bg-black/60 border border-white/10 text-white">
-          </div>
-        </div>
-
-        <!-- Upload -->
         <div>
-          <label class="block text-sm text-gray-400 mb-2">Bukti pembayaran / referensi (opsional)</label>
-          <div id="dropzone" class="rounded-xl border-2 border-dashed border-white/10 bg-black/40 p-5 text-center cursor-pointer hover:border-white/30 transition">
-            <p class="text-sm text-gray-400">Seret & letakkan file di sini, atau <span class="underline">pilih file</span></p>
-            <p class="text-xs text-gray-500 mt-1">Maks. 10MB, format: JPG/PNG/WebP/SVG/PDF</p>
-            <input id="fileInput" type="file" name="attachment" accept=".jpg,.jpeg,.png,.webp,.svg,.pdf" class="sr-only">
-          </div>
-
-          <div id="fileInfo" class="hidden mt-3 rounded-lg bg-black/40 border border-white/10 p-3 text-sm">
-            <div class="flex items-center gap-3">
-              <img id="fileThumb" class="w-12 h-12 object-cover rounded-md hidden" alt="">
-              <div class="min-w-0">
-                <p id="fileName" class="truncate text-gray-200"></p>
-                <p id="fileSize" class="text-gray-500 text-xs"></p>
-              </div>
-              <button type="button" id="clearFile" class="ml-auto text-xs px-2 py-1 rounded-md bg-white/10 hover:bg-white/20">Hapus</button>
-            </div>
-          </div>
+          <label class="block text-sm text-gray-400 mb-1">Email</label>
+          <input required type="email" name="Email" id="emailInput" class="w-full px-3 py-2 rounded-lg bg-black/60 border border-white/10 text-white">
         </div>
+      </div>
 
-        <div>
-          <label class="block text-sm text-gray-400 mb-1">Catatan</label>
-          <textarea name="Catatan" rows="4" class="w-full px-3 py-2 rounded-lg bg-black/60 border border-white/10 text-white" placeholder="Tulis detail keinginan logo..."></textarea>
-        </div>
+      <div>
+        <label class="block text-sm text-gray-400 mb-1">Catatan</label>
+        <textarea name="Catatan" id="noteInput" rows="4" class="w-full px-3 py-2 rounded-lg bg-black/60 border border-white/10 text-white" placeholder="Tulis detail keinginan logo..."></textarea>
+      </div>
 
-        <button class="w-full bg-white text-black font-semibold py-3 rounded-xl hover:opacity-90">Kirim</button>
-      </form>
-    </div>
+      <!-- Tombol Order -->
+      <div class="flex flex-col sm:flex-row gap-3 pt-2">
+        <button type="submit" class="flex-1 bg-white text-black font-semibold py-3 rounded-xl hover:opacity-90">
+          Kirim ke Email
+        </button>
+
+        <!-- Tombol baru: Order via Instagram -->
+        <button type="button" id="igOrderBtn" class="flex-1 bg-gradient-to-r from-pink-500 to-purple-600 text-white font-semibold py-3 rounded-xl hover:opacity-90">
+          Order via Instagram
+        </button>
+      </div>
+    </form>
   </div>
+</div>
+
+<script>
+  // --- Instagram Order ---
+  document.getElementById('igOrderBtn').addEventListener('click', () => {
+    const product = document.getElementById('prodInput').value || 'Custom Logo';
+    const name    = document.getElementById('nameInput').value || '(Nama belum diisi)';
+    const email   = document.getElementById('emailInput').value || '(Email belum diisi)';
+    const note    = document.getElementById('noteInput').value || '(Tanpa catatan)';
+
+    const message = encodeURIComponent(
+      `Halo Blackmatter 👋\n\nSaya ingin order logo:\n\n` +
+      `🖤 Produk: ${product}\n👤 Nama: ${name}\n📧 Email: ${email}\n📝 Catatan: ${note}\n\nDikirim dari website Blackmatter.`
+    );
+
+    window.open(`https://www.instagram.com/direct/t/340282366841710300949128127662006987619?text=${message}`, '_blank');
+  });
+</script>
 
   <!-- FOOTER -->
   <footer class="py-2 text-center text-gray-500 border-t border-white/10">
@@ -370,3 +377,4 @@
   </script>
 </body>
 </html>
+
