@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Graffiello_V — Visual Storyteller</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Favicon (optional) -->
+  <link rel="icon" href="./images/G.png" type="image/png" sizes="32x32">
+
+  <!-- Meta -->
+  <meta name="description" content="Graffiello_V — A dark visual storytelling portfolio.">
+</head>
+<body class="bg-neutral-900 text-white font-sans">
+
+  <!-- NAVBAR -->
+  <nav class="fixed top-6 left-0 right-0 z-50 px-6 md:px-12">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <div class="text-2xl font-bold tracking-wider">Graffiello_V</div>
+      <div class="space-x-6 hidden md:flex items-center text-sm opacity-80">
+        <a href="#about" class="hover:underline">About</a>
+        <a href="#gallery" class="hover:underline">Gallery</a>
+        <a href="#contact" class="hover:underline">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="relative overflow-hidden min-h-[80vh] flex items-center">
+    <div class="absolute inset-0 -z-10 bg-gradient-to-br from-black via-neutral-900 to-slate-800/30"></div>
+
+    <div class="max-w-6xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-8 items-center w-full">
+      <div>
+        <h1 class="text-4xl md:text-6xl leading-tight font-extrabold tracking-tight">
+          graffiello_v —<br>visual storyteller
+        </h1>
+
+        <p class="mt-6 max-w-xl text-neutral-300">
+          A dark, tactile portfolio for experimental visual art — motion, canvas, and noise.
+        </p>
+
+        <div class="mt-8 flex gap-4">
+          <a href="#gallery" class="inline-block px-6 py-3 rounded-2xl border border-neutral-700 text-sm uppercase tracking-wider hover:bg-white/5 transition">View Work</a>
+          <a href="#contact" class="inline-block px-6 py-3 rounded-2xl bg-white/5 text-sm border border-transparent hover:bg-white/8 transition">Contact</a>
+        </div>
+      </div>
+
+      <div class="relative">
+        <div class="rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-neutral-800 to-neutral-700 p-4">
+          <div class="w-full h-64 md:h-80 lg:h-96 rounded-lg bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?w=1400&q=80')"></div>
+          <div class="mt-4 flex items-center justify-between">
+            <div>
+              <div class="font-semibold">Latest — "Nocturne"</div>
+              <div class="text-xs text-neutral-400">Experimental mixed media</div>
+            </div>
+            <div class="text-xs opacity-70">2025</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about" class="py-20">
+    <div class="max-w-4xl mx-auto px-6 text-neutral-300 text-center">
+      <h2 class="text-3xl font-bold mb-4">About the Project</h2>
+      <p class="leading-relaxed">
+        Graffiello_V experiments at the edge of noise and form — mixing analog textures, digital collage and motion.
+        Projects are presented as short loops and tactile images to keep the browsing experience immersive.
+      </p>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="py-20 bg-neutral-950">
+    <div class="max-w-6xl mx-auto px-6">
+      <h3 class="text-2xl font-bold text-white mb-8">Selected Works</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <!-- Example gallery cards -->
+        <div class="rounded-xl overflow-hidden bg-gradient-to-br from-neutral-800 to-neutral-700">
+          <div class="aspect-[4/3] bg-cover bg-center" style="background-image: url('https://picsum.photos/800/600?random=1')"></div>
+          <div class="p-4">
+            <div class="font-semibold">Piece 1</div>
+            <div class="text-xs text-neutral-400 mt-1">Mixed media — loop</div>
+          </div>
+        </div>
+        <div class="rounded-xl overflow-hidden bg-gradient-to-br from-neutral-800 to-neutral-700">
+          <div class="aspect-[4/3] bg-cover bg-center" style="background-image: url('https://picsum.photos/800/600?random=2')"></div>
+          <div class="p-4">
+            <div class="font-semibold">Piece 2</div>
+            <div class="text-xs text-neutral-400 mt-1">Mixed media — loop</div>
+          </div>
+        </div>
+        <div class="rounded-xl overflow-hidden bg-gradient-to-br from-neutral-800 to-neutral-700">
+          <div class="aspect-[4/3] bg-cover bg-center" style="background-image: url('https://picsum.photos/800/600?random=3')"></div>
+          <div class="p-4">
+            <div class="font-semibold">Piece 3</div>
+            <div class="text-xs text-neutral-400 mt-1">Mixed media — loop</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="bg-neutral-900/60 border border-neutral-800 rounded-2xl p-8">
+        <h4 class="text-xl font-bold mb-2">Work Enquiries</h4>
+        <p class="text-neutral-400 mb-6">Shoot an email or drop a short message below — response within a few days.</p>
+
+        <form class="grid grid-cols-1 md:grid-cols-2 gap-4" onsubmit="event.preventDefault()">
+          <input placeholder="Your name" class="p-3 rounded-lg bg-neutral-800 border border-neutral-700" />
+          <input placeholder="Email" class="p-3 rounded-lg bg-neutral-800 border border-neutral-700" />
+          <textarea placeholder="Message" class="md:col-span-2 p-3 rounded-lg bg-neutral-800 border border-neutral-700 h-28"></textarea>
+          <button class="md:col-span-2 py-3 rounded-lg bg-white/6 hover:bg-white/10 transition">Send message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-12 text-center text-neutral-500 text-sm">
+    © 2025 Graffiello_V — built with love
+  </footer>
+</body>
+</html>
